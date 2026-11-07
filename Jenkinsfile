@@ -17,6 +17,9 @@ pipeline {
         REGISTRY      = 'node5.naasbd.com'
         REPO_IMAGE    = 'node5.naasbd.com/handson_yousuf/mansur'
         BUILDER_NAME  = 'handsonyousuf'
+        // Leave empty to push without login. If the registry later rejects the push
+        // (unauthorized / authentication required), put a Jenkins credential ID here.
+        REGISTRY_CREDENTIALS = ''
         DOCKER_HOST   = 'unix:///var/run/docker.sock'
     }
 
@@ -100,11 +103,10 @@ pipeline {
         }
 
         stage('Login registry') {
+            when { expression { env.REGISTRY_CREDENTIALS?.trim() } }
             steps {
-                // Pushing to a registry still needs an account, even if the project is public.
-                // Create a Jenkins "Username with password" credential with this ID.
                 withCredentials([usernamePassword(
-                    credentialsId: 'HANDSON-REGISTRY',
+                    credentialsId: env.REGISTRY_CREDENTIALS,
                     usernameVariable: 'REG_USER',
                     passwordVariable: 'REG_PASS'
                 )]) {
