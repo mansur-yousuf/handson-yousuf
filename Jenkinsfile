@@ -17,9 +17,9 @@ pipeline {
         REGISTRY      = 'node5.naasbd.com'
         REPO_IMAGE    = 'node5.naasbd.com/handson_yousuf/mansur'
         BUILDER_NAME  = 'handsonyousuf'
-        // Leave empty to push without login. If the registry later rejects the push
-        // (unauthorized / authentication required), put a Jenkins credential ID here.
-        REGISTRY_CREDENTIALS = ''
+        // Jenkins "Username with password" credential for node5.naasbd.com.
+        // The registry rejects anonymous pushes, so this is required. Set to '' to skip login.
+        REGISTRY_CREDENTIALS = 'NAAS-REGISTRY'
         DOCKER_HOST   = 'unix:///var/run/docker.sock'
     }
 
