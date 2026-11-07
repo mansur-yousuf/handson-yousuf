@@ -1,0 +1,54 @@
+# Angular build artifacts
+**/bin/
+**/obj/
+**/out/
+dist/
+.angular/
+
+# Visual Studio files
+.vscode/
+.vs/
+*.user
+*.suo
+*.tmp
+*.tmp_proj
+
+# Git
+.git/
+.gitignore
+
+# Docker
+Dockerfile*
+docker-compose*
+
+# Jenkins
+Jenkinsfile
+
+# Logs
+*.log
+logs/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Node.js (if any)
+node_modules/
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+
+# IDE specific
+.idea/
+*.swp
+*.swo
+
+# Other
+README.md
